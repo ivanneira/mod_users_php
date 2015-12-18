@@ -14,7 +14,7 @@ class db_connection{
     }
 
     function matchPass($user,$pass){
-        //busca coincidencia en usuario y contraseña
+        //busca coincidencia en usuario y contraseña.
         return "test";
 
     }
