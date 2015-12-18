@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<form method="POST" action="users.php">
+<form method="POST" action="users_login.php">
     <input type="text" name="user" />
     <input type="text" name="pass" />
     <input type="submit"/>
