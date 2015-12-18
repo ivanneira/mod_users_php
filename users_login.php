@@ -17,6 +17,9 @@ if(isset($_POST)) {
     if($_POST["user"]!=""){
         if($_POST["pass"]!=""){
 
+            $user = $_POST["user"];
+            $pass = $_POST["pass"];
+
             $search = new db_connection();
 
             if($search->searchUser($user)=="true"){
@@ -34,7 +37,7 @@ if(isset($_POST)) {
 //falso porque no llegó el post
 }else $e = "false";
 
-
+//¿Hace falta aclarar cuál fue el error?
 
 /*//Me arrepentí de validar tanto de este lado
 
