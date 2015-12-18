@@ -11,22 +11,17 @@
 class db_connection{
 
     //datos de conexión
-    $mySqlHost = 'localhost';
-    $mySqlUser = 'admin';
-    $mySqlPass = 'qweqwe';
-    $mySqlDb = 'AR_IVW_mgmt';
+    public $mySqlHost = 'localhost';
+    public $mySqlUser = 'admin';
+    public $mySqlPass = 'qweqwe';
+    public $mySqlDb = 'AR_IVW_mgmt';
 
-    $link = mysql_connect($mySqlHost, $mySqlUser, $mySqlPass )
-        or die ('mysql conection fail: '.mysql_error());
-
-    mysql_select_db($mySqlDb) or die ('database conection fail');
-
-
+    public $pdo = new PDO( 'mysql:host=' . $mySqlHost .';dbname=' . $mySqlDb, $mySqlUser, $mySqlPass);
 
     function searchUser($user){
         //aca busqueda en DB
 
-        $result = mysql('SELECT '.$user.' FROM users');
+        $result = mysql('SELECT '.$user.', count(*) FROM Users GROUP BY User HAVING count(*) > 1');
 
         echo $result;
 
@@ -52,4 +47,6 @@ class db_connection{
     function removeUser($user){
         //borrar usuario
     }
+
+
 }
