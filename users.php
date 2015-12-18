@@ -6,6 +6,8 @@
  * Time: 0:34
  */
 
+include 'classes.php';
+
 $e = "sin errores";
 
 if(isset($_POST)){
@@ -23,7 +25,30 @@ if(isset($_POST)){
     $e = "no se recibio el post";
 }
 
+//si no se encontraron errores, las consultas comienzan acá
 if($e == "sin errores"){
+
+    $busqueda = new db_connection();
+    $resultado = "sin resultado";
+
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
+
+    $resultado = $busqueda->searchUser($user);
+
+    if($resultado!="sin resultado"){
+
+        $resultado = $busqueda->matchPass($user,$pass);
+
+        if($resultado=="true"){
+            $e = "true";
+        }else{
+            $e = "false";
+        }
+    }else{
+        $resultado = "no se encuentra el usuario";
+    }
+
 
 
 }else{
