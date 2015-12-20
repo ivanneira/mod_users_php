@@ -13,6 +13,10 @@ $e = "false"; //por las dudas
 //que las validaciones de entrada sean por javascript
 //verifico que no vengan vacías nada mas
 
+//BORRAR, solo para pruebas
+$prueba = new db_connection();
+$prueba->test();
+
 if(isset($_POST)) {
     if($_POST["user"]!=""){
         if($_POST["pass"]!=""){

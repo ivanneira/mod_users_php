@@ -6,27 +6,20 @@
  * Time: 1:03
  */
 
-
+include 'db_access.php';
 
 class db_connection{
 
-    //datos de conexión
-    public $mySqlHost = 'localhost';
-    public $mySqlUser = 'admin';
-    public $mySqlPass = 'qweqwe';
-    public $mySqlDb = 'AR_IVW_mgmt';
-
-    public $pdo = new PDO( 'mysql:host=' . $mySqlHost .';dbname=' . $mySqlDb, $mySqlUser, $mySqlPass);
+    private  $pdo = new PDO( 'mysql:host=' . $mySqlHost .';dbname=' . $mySqlDb, $mySqlUser, $mySqlPass);
 
     function searchUser($user){
-        //aca busqueda en DB
+        //aca busqueda solamente el usuario en DB
 
         $result = mysql('SELECT '.$user.', count(*) FROM Users GROUP BY User HAVING count(*) > 1');
 
         echo $result;
 
         return "test";
-
 
     }
 
@@ -46,6 +39,16 @@ class db_connection{
 
     function removeUser($user){
         //borrar usuario
+    }
+
+    //funcion de prueba
+    function test(){
+
+        $resultado = $pdo->query('SELECT * FROM User');
+
+        var_dump($resultado);
+
+
     }
 
 
