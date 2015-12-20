@@ -10,8 +10,8 @@
 //datos de conexión
 
 $mySqlHost = 'localhost';
-$mySqlUser = 'admin';
-$mySqlPass = 'qweqwe';
+$mySqlUser = 'root';
+$mySqlPass = '';
 $mySqlDb = 'AR_IVW_mgmt';
 
 ?>

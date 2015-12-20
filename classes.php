@@ -6,18 +6,16 @@
  * Time: 1:03
  */
 
-include 'db_access.php';
+include_once 'db_access.php';
 
-
-    $putoPdo = new PDO('mysql:host=localhost; dbname=AR_IVW_mgmt','root','');
+$mySqlPDO = new PDO('mysql:host='.$mySqlHost.';dbname='.$mySqlDb, $mySqlUser, $mySqlPass);
 
 
 class db_connection{
 
     function searchUser($user){
-        //aca busqueda solamente el usuario en DB
+        //aca busqueda solamente el usuario en la DB
 
-        return "test";
 
     }
 
@@ -41,6 +39,10 @@ class db_connection{
 
     //funcion de prueba
     function test(){
+        $statement = $mySqlPdo->prepare("SELECT * FROM User");
+        $statement->execute();
+
+        var_dump($statement->fetch());
 
 
 
