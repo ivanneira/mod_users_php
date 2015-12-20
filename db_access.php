@@ -9,9 +9,9 @@
 
 //datos de conexión
 
-public $mySqlHost = 'localhost';
-public $mySqlUser = 'admin';
-public $mySqlPass = 'qweqwe';
-public $mySqlDb = 'AR_IVW_mgmt';
+$mySqlHost = 'localhost';
+$mySqlUser = 'admin';
+$mySqlPass = 'qweqwe';
+$mySqlDb = 'AR_IVW_mgmt';
 
 ?>

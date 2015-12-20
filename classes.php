@@ -8,16 +8,14 @@
 
 include 'db_access.php';
 
-class db_connection{
 
-    private  $pdo = new PDO( 'mysql:host=' . $mySqlHost .';dbname=' . $mySqlDb, $mySqlUser, $mySqlPass);
+    $putoPdo = new PDO('mysql:host=localhost; dbname=AR_IVW_mgmt','root','');
+
+
+class db_connection{
 
     function searchUser($user){
         //aca busqueda solamente el usuario en DB
-
-        $result = mysql('SELECT '.$user.', count(*) FROM Users GROUP BY User HAVING count(*) > 1');
-
-        echo $result;
 
         return "test";
 
@@ -44,9 +42,6 @@ class db_connection{
     //funcion de prueba
     function test(){
 
-        $resultado = $pdo->query('SELECT * FROM User');
-
-        var_dump($resultado);
 
 
     }
