@@ -16,6 +16,7 @@ $e = "false"; //por las dudas
 //BORRAR, solo para pruebas
 $prueba = new db_connection();
 
+$prueba->searchUser('ivan');
 
 if(isset($_POST)) {
     if($_POST["user"]!=''){
@@ -41,8 +42,14 @@ if(isset($_POST)) {
 //falso porque no llegó el post
 }else $e = "false";
 
-echo $e;
+if($e = 'false'){
 
+    //en lugar del echo, acá se envía el error de login al quien lo pide
+    echo 'nombre de usuario o contraseña incorrecta';
+}else{
 
-
+    //en vez de echo se envía el acceso correcto a la sesion
+    //tendría que ir con un token para guardar en una cookie
+    //la sesión se mantendría gracias a esta cookie
+}
 ?>

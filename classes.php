@@ -17,18 +17,24 @@ try {
 
 }
 
-
 class db_connection{
 
     function searchUser($user){
         //aca busqueda solamente el usuario en la DB
-        $query = '';
+        $query = 'SELECT COUNT(*) FROM User WHERE Name = \''.$user.'\'';
         global $mySqlPDO;
 
         $mySqlQ = $mySqlPDO->prepare($query);
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
+        if( ($rows[0]["COUNT(*)"])>='1') {
+
+            return 'true';
+
+        }else{
+            return 'false';
+        }
 
     }
 
