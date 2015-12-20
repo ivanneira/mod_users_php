@@ -1,0 +1,10 @@
+Database structure
+
+Name:
+    AR_IVW_mgmt
+
+columns:
+    UserId: (int) primary key
+    UserName: (text)
+    Password: (text)
+    Status;

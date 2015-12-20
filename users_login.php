@@ -15,7 +15,7 @@ $e = "false"; //por las dudas
 
 //BORRAR, solo para pruebas
 $prueba = new db_connection();
-$prueba->test();
+
 
 if(isset($_POST)) {
     if($_POST["user"]!=''){

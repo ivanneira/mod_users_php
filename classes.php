@@ -72,17 +72,6 @@ class db_connection{
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    //funcion de prueba
-    function test(){
-        global $mySqlPDO;
-
-        $mySqlQ = $mySqlPDO->prepare('SELECT * FROM User');
-        $mySqlQ->execute();
-        $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
-
-        var_dump($rows);
-
-    }
 
 
 }
