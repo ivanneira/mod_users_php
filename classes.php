@@ -8,7 +8,14 @@
 
 include_once 'db_access.php';
 
-$mySqlPDO = new PDO('mysql:host='.$mySqlHost.';dbname='.$mySqlDb, $mySqlUser, $mySqlPass);
+try {
+    $mySqlPDO = new PDO('mysql:host=' . $mySqlHost . ';dbname=' . $mySqlDb, $mySqlUser, $mySqlPass);
+    echo "intenta conectar <br>";
+}catch (PDOException $e) {
+    echo "encuentra excepcion";
+    echo $e->getMessage();
+
+}
 
 
 class db_connection{
@@ -39,12 +46,14 @@ class db_connection{
 
     //funcion de prueba
     function test(){
-        $statement = $mySqlPdo->prepare("SELECT * FROM User");
-        $statement->execute();
-
-        var_dump($statement->fetch());
+        global $mySqlPDO;
 
 
+        $mySqlQ = $mySqlPDO->prepare('SELECT * FROM User');
+        $mySqlQ->execute();
+        $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($rows);
 
     }
 
