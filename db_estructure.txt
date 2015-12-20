@@ -1,10 +1,9 @@
-Database structure
+//Database Structure
 
-Name:
-    AR_IVW_mgmt
-
-columns:
-    UserId: (int) primary key
-    UserName: (text)
-    Password: (text)
-    Status;
+    {"User": {
+       "UserId": "int, primary_key",
+       "Name": "text",
+       "Password": "text",
+       "Status": "int"
+     }
+    }
