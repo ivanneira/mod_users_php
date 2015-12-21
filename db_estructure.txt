@@ -1,9 +1,0 @@
-//Database Structure
-
-    {"User": {
-       "UserId": "int, primary_key",
-       "Name": "text",
-       "Password": "text",
-       "Status": "int"
-     }
-    }

@@ -1,0 +1,10 @@
+//Database Structure
+
+{"User": {
+
+   "UserId": "int, primary_key,autoincremental",
+   "Name": "text",
+   "Password": "text",
+   "Status": "int"
+ }
+}

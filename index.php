@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>input</title>
+    <title>Ingreso de usuarios</title>
 
 </head>
 <body>
