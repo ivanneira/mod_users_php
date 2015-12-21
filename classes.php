@@ -40,16 +40,14 @@ class db_connection{
 
     //busca coincidencia entre usuario y contraseña
     function matchPass($user,$pass){
-        $query = 'SELECT \'Password\' FROM \'User\' WHERE User =\''.$user.'\'';
+        $query = 'SELECT Password FROM User WHERE Name = \''.$user.'\'';
         global $mySqlPDO;
 
         $mySqlQ = $mySqlPDO->prepare($query);
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
-        var_dump($rows);
-
-        return 'true';
+        if(($rows[0]['Password'])==$pass) return 'true'; else return 'false';
 
     }
 
