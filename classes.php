@@ -19,8 +19,8 @@ try {
 
 class db_connection{
 
+    //Busca el usuario en la base de datos
     function searchUser($user){
-        //aca busqueda solamente el usuario en la DB
         $query = 'SELECT COUNT(*) FROM User WHERE Name = \''.$user.'\'';
         global $mySqlPDO;
 
@@ -28,7 +28,7 @@ class db_connection{
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
-        if( ($rows[0]["COUNT(*)"])>='1') {
+        if( ($rows[0]["COUNT(*)"])>=1) {
 
             return 'true';
 
@@ -38,14 +38,18 @@ class db_connection{
 
     }
 
+    //busca coincidencia entre usuario y contraseña
     function matchPass($user,$pass){
-        //busca coincidencia en usuario y contraseña.
-        $query = '';
+        $query = 'SELECT \'Password\' FROM \'User\' WHERE User =\''.$user.'\'';
         global $mySqlPDO;
 
         $mySqlQ = $mySqlPDO->prepare($query);
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($rows);
+
+        return 'true';
 
     }
 

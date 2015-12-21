@@ -16,8 +16,6 @@ $e = "false"; //por las dudas
 //BORRAR, solo para pruebas
 $prueba = new db_connection();
 
-$prueba->searchUser('ivan');
-
 if(isset($_POST)) {
     if($_POST["user"]!=''){
         if($_POST["pass"]!=""){
@@ -27,10 +25,10 @@ if(isset($_POST)) {
 
             $search = new db_connection();
 
-            if($search->searchUser($user)=="true"){
-                if($search->matchPass($user,$pass)=="true") {
+            if($search->searchUser($user)=='true'){
+                if($search->matchPass($user,$pass)=='true') {
                     //único caso en el que se valida el ingreso
-                    $e = "true";
+                    $e = 'true';
                 //falso porque no coincide la contraseña
                 }else $e = "false";
             //falso porque no existe el usuario
@@ -42,7 +40,7 @@ if(isset($_POST)) {
 //falso porque no llegó el post
 }else $e = "false";
 
-if($e = 'false'){
+if($e == 'false'){
 
     //en lugar del echo, acá se envía el error de login al quien lo pide
     echo 'nombre de usuario o contraseña incorrecta';
@@ -51,5 +49,6 @@ if($e = 'false'){
     //en vez de echo se envía el acceso correcto a la sesion
     //tendría que ir con un token para guardar en una cookie
     //la sesión se mantendría gracias a esta cookie
+    echo  'ACCESO CORRECTO';
 }
 ?>
