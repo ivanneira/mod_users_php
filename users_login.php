@@ -17,8 +17,20 @@ if (isset($_POST)) {
 
     $checkVariables = new checkInput();
 
-    if($checkVariables->check($user,$pass)=='true'){
-        $e = 'true';
+    if($checkVariables->check($user,$pass)=='true') {
+
+        $search = new db_connection();
+
+        if ($search->searchUser($user) == 'true') {
+
+            if ($search->matchPass($user, $pass) == 'true') {
+                //único caso en el que se valida el ingreso
+                $e = 'true';
+                //falso porque no coincide la contraseña
+            }
+            $e = 'false';
+            //falso porque no existe el usuario
+        } else $e = 'false';
     }else $e = 'false';
 }else $e = 'false';
 
