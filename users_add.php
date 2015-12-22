@@ -6,6 +6,5 @@
  * Time: 3:18
  */
 
-include_once 'classes_db_access.php';
+include_once 'classes.php';
 
-?>
