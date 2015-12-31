@@ -8,33 +8,23 @@
 
 include_once 'classes.php';
 
-$user = $_POST["user"];
-$pass = $_POST["pass"];
-
 //verificacion de usuarios y contraseñas
-if (isset($_POST)) {
-
+if (isset($_POST["user"]) && isset($_POST["pass"])) {
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
     $checkVariables = new checkInput();
-
-    if($checkVariables->check($user,$pass)=='true'){
-        $e = 'true';
-    }else $e = 'false del check';
-
-}else $e = 'false del post';
+    $e = $checkVariables->check($user,$pass) ? "true" : "false del check";
+}else
+    $e = 'false del post';
 
 echo $e;
 
 //agrega usuario
 if ($e == 'true') {
-
     $addUser = new db_connection();
-
-    if ($addUser->addUser($user, $pass)=='true') {
-            echo 'ingreso correcto';
+    if ($addUser->addUser($user, $pass)) {
+        echo 'ingreso correcto';
     }
 }else {
-
-
     echo 'ingreso incorrecto';
-
 }

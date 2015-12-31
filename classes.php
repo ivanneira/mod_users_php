@@ -62,13 +62,12 @@ class db_connection{
         //verificar que no exista el usuario
         $add = new db_connection();
 
-        if(($add->searchUser($user))=='true'){
+        if($add->searchUser($user)){
             echo 'el usuario existe';
-            return 'false';
+            return false;
         }else{
             //agregar a la base de datos
-
-            $query = "INSERT INTO user(Name,Password,Status) VALUES(".$user.",".$pass.",1)";
+            $query = "INSERT INTO user(Name,Password,Status) VALUES($user,$pass,1)";
 
             global $mySqlPDO;
 
@@ -78,9 +77,7 @@ class db_connection{
 
             var_dump($eeewww);
 
-            if($eeewww) {
-                return 'true';
-            }else return false;
+            return $eeewww;
         }
 
     }
@@ -101,10 +98,11 @@ class checkInput{
 
     function check($user,$pass)
     {
+        return (($user != '') || ($pass != ''));
 
-        if (($user == '') || ($pass == '')) {
+        /*if () {
             //falso por usuario o contraseña en blanco
             return 'false';
-        } else return 'true';
+        } else return 'true';*/
     }
 }
