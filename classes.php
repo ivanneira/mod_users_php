@@ -28,13 +28,15 @@ class db_connection{
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
-        if( ($rows[0]["COUNT(*)"])>=1) {
+        /*if( ($rows[0]["COUNT(*)"])>=1) {
 
             return 'true';
 
         }else{
             return 'false';
-        }
+        }*/
+
+        return $rows[0]["COUNT(*)"] >= 1;
 
     }
 
@@ -47,7 +49,10 @@ class db_connection{
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
-        if(($rows[0]['Password'])==$pass) return 'true'; else return 'false';
+
+        //if(($rows[0]['Password'])==$pass) return 'true'; else return 'false';
+
+        return $rows[0]['Password'] == $pass;
 
     }
 
