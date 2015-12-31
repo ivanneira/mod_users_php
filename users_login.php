@@ -25,8 +25,8 @@ if(isset($_POST)) {
 
             $search = new db_connection();
 
-            if($search->searchUser($user)=='true'){
-                if($search->matchPass($user,$pass)=='true') {
+            if($search->searchUser($user)){
+                if($search->matchPass($user,$pass)) {
                     //único caso en el que se valida el ingreso
                     $e = 'true';
                 //falso porque no coincide la contraseña
