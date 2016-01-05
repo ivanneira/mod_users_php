@@ -8,7 +8,7 @@
 
 include 'classes.php';
 
-$e = "false"; //por las dudas
+$e = false; //por las dudas
 
 //que las validaciones de entrada sean por javascript
 //verifico que no vengan vacías nada mas
@@ -18,7 +18,7 @@ $prueba = new db_connection();
 
 if(isset($_POST)) {
     if($_POST["user"]!=''){
-        if($_POST["pass"]!=""){
+        if($_POST["pass"]!=''){
 
             $user = $_POST["user"];
             $pass = $_POST["pass"];
@@ -28,19 +28,19 @@ if(isset($_POST)) {
             if($search->searchUser($user)){
                 if($search->matchPass($user,$pass)) {
                     //único caso en el que se valida el ingreso
-                    $e = 'true';
+                    $e = true;
                 //falso porque no coincide la contraseña
-                }else $e = "false";
+                }else $e = false;
             //falso porque no existe el usuario
-            }else $e = "false";
+            }else $e = false;
         //falso porque la contraseña está en blanco
-        }else $e= "false";
+        }else $e= false;
     //falso porque el usuario está en blanco
-    }else $e = "false";
+    }else $e = false;
 //falso porque no llegó el post
-}else $e = "false";
+}else $e = false;
 
-if($e == 'false'){
+if(!$e){
 
     //en lugar del echo, acá se envía el error de login al quien lo pide
     echo 'nombre de usuario o contraseña incorrecta';

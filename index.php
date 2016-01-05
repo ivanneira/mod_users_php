@@ -6,14 +6,14 @@
  * Time: 0:28
  */
 ?>
-// test commit from develop
+
 <html>
 <head>
     <title>Ingreso de usuarios</title>
 
 </head>
 <body>
-<form method="POST" action="users_add.php">
+<form method="POST" action="users_login.php">
     <input type="text" name="user" />
     <input type="text" name="pass" />
     <input type="submit"/>

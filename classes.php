@@ -21,36 +21,25 @@ class db_connection{
 
     //Busca el usuario en la base de datos
     function searchUser($user){
-        $query = 'SELECT COUNT(*) FROM User WHERE Name = \''.$user.'\'';
+        $query = 'SELECT COUNT(*) FROM users WHERE User = \''.$user.'\'';
         global $mySqlPDO;
 
         $mySqlQ = $mySqlPDO->prepare($query);
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
 
-        /*if( ($rows[0]["COUNT(*)"])>=1) {
-
-            return 'true';
-
-        }else{
-            return 'false';
-        }*/
-
-        return $rows[0]["COUNT(*)"] >= 1;
+        return ($rows[0]["COUNT(*)"]) >= 1;
 
     }
 
     //busca coincidencia entre usuario y contraseña
     function matchPass($user,$pass){
-        $query = 'SELECT Password FROM User WHERE Name = \''.$user.'\'';
+        $query = 'SELECT Password FROM users WHERE User = \''.$user.'\'';
         global $mySqlPDO;
 
         $mySqlQ = $mySqlPDO->prepare($query);
         $mySqlQ->execute();
         $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
-
-
-        //if(($rows[0]['Password'])==$pass) return 'true'; else return 'false';
 
         return $rows[0]['Password'] == $pass;
 
