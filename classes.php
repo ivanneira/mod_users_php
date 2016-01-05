@@ -56,17 +56,15 @@ class db_connection{
             return false;
         }else{
             //agregar a la base de datos
-            $query = "INSERT INTO user(Name,Password,Status) VALUES($user,$pass,1)";
+            $query = "INSERT INTO users (User,Password,Status) VALUES('$user','$pass','1')";
 
             global $mySqlPDO;
 
             $mySqlQ = $mySqlPDO->prepare($query);
 
-            $eeewww = $mySqlQ->execute();
+            $result = $mySqlQ->execute();
 
-            var_dump($eeewww);
-
-            return $eeewww;
+            return $result;
         }
 
     }
@@ -89,9 +87,5 @@ class checkInput{
     {
         return (($user != '') || ($pass != ''));
 
-        /*if () {
-            //falso por usuario o contraseña en blanco
-            return 'false';
-        } else return 'true';*/
     }
 }

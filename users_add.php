@@ -13,14 +13,13 @@ if (isset($_POST["user"]) && isset($_POST["pass"])) {
     $user = $_POST["user"];
     $pass = $_POST["pass"];
     $checkVariables = new checkInput();
-    $e = $checkVariables->check($user,$pass) ? "true" : "false del check";
+    $e = $checkVariables->check($user,$pass) ? true : false;
 }else
-    $e = 'false del post';
+    $e = false;
 
-echo $e;
 
 //agrega usuario
-if ($e == 'true') {
+if ($e) {
     $addUser = new db_connection();
     if ($addUser->addUser($user, $pass)) {
         echo 'ingreso correcto';
