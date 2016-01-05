@@ -69,14 +69,26 @@ class db_connection{
 
     }
 
+    //Borrar usuario: no busca contraseña, borra sin preguntar y da error solo si no encuentra el usuario.
     function removeUser($user){
         //borrar usuario
-        $query = '';
-        global $mySqlPDO;
+        $rem = new db_connection();
 
-        $mySqlQ = $mySqlPDO->prepare($query);
-        $mySqlQ->execute();
-        $rows = $mySqlQ->fetchAll(PDO::FETCH_ASSOC);
+        if(!($rem->searchUser($user))){
+
+            return false;
+        }else{
+            //quitar de la base de datos
+            $query = "DELETE FROM `users` WHERE User = '".$user."'";
+
+            global $mySqlPDO;
+
+            $mySqlQ = $mySqlPDO->prepare($query);
+
+            $result = $mySqlQ->execute();
+
+            return $result;
+        }
     }
 
 }
