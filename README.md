@@ -1,4 +1,6 @@
 # mod_users_php
+
+[![Join the chat at https://gitter.im/ivanneira/mod_users_php](https://badges.gitter.im/ivanneira/mod_users_php.svg)](https://gitter.im/ivanneira/mod_users_php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 modulo de validacion de usuarios en php y mysql
 
 se envían los datos "user" y "pass" mediante post, hay un archivo index.php que contiene el html para hacer las pruebas
